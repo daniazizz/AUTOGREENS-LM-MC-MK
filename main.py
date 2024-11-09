@@ -292,7 +292,7 @@ def init_mc(username, password, shop_id):
    # Submit the form
    login_button = driver.find_element(By.XPATH, "/html/body/ui-view/login/div/div/div/form/div/button")
    ActionChains(driver).move_to_element(login_button).click().perform()
-   human_sleep(3, 5)
+   human_sleep(4, 6)
    
     # Add screenshots to the S3 bucket
    capture_screenshot_and_upload(
@@ -302,7 +302,7 @@ def init_mc(username, password, shop_id):
    # click category
    login_button = driver.find_element(By.XPATH, "/html/body/ui-view/app/div/home/div/div[1]/div/div[2]/div/i")
    ActionChains(driver).move_to_element(login_button).click().perform()
-   human_sleep(3, 5)
+   human_sleep(4, 6)
    
    # Add screenshots to the S3 bucket
    capture_screenshot_and_upload(
@@ -327,6 +327,7 @@ def run_mc(username, password, sheet, shop_id):
     driver = init_mc(username, password, shop_id)
     data = read_data(sheet)
     driver.execute_script("document.body.style.zoom='0.5'")
+    human_sleep(4, 6)
     i = 2
     for e in data:
         print(e)
